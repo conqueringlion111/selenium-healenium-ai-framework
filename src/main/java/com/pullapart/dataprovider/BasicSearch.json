@@ -1,0 +1,9 @@
+{
+  "performBasicSearchInGeorgiaWithDataProvider"   :     [
+    {
+      "location"        :     "Atlanta North",
+      "make"            :     "INFINITI",
+      "model"           :     "Q45"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name = "Regression" parallel = "classes" thread-count = "2">
+    <listeners>
+        <listener class-name="com.pullapart.reporting.ExtentTestListener"/>
+        <listener class-name="com.pullapart.reporting.ExtentReportListener"/>
+        <listener class-name="com.pullapart.test.retrytest.AnnotationTransformer"/>
+    </listeners>
+    <test name = "Regression">
+        <parameter name="browserRemote" value="chromeRemote"/>
+        <groups>
+            <define name = "regression">
+                <include name = "basicsearch"/>
+                <include name = "navigation"/>
+            </define>
+            <define name = "Other UI Regression">
+                <include name = "basicsearch"/>
+            </define>
+        </groups>
+        <packages>
+            <package name = "com.pullapart.test"/>
+        </packages>
+    </test>
+</suite>

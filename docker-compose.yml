@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:11
+    container_name: healenium-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: healenium
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  healenium-backend:
+    image: ghcr.io/healenium/healenium-backend:latest
+    container_name: healenium-backend
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/healenium
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "7878:7878"
+
+  healenium-selector:
+    image: ghcr.io/healenium/healenium-selector:latest
+    container_name: healenium-selector
+    restart: always
+    ports:
+      - "7777:7777"
+
+volumes:
+  postgres_data:
