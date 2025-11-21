@@ -28,13 +28,13 @@ Centralized Selenium utilities
 
 Explicit waits wrapper
 
-Java 17 (records, switch patterns, clean code)
+Java 17
 
 🔥 Custom Built Utilities
 
-DriverManager (lifecycle management)
+DriverManager
 
-PageManager (lazy-loaded pages)
+PageManager
 
 Waits (explicit wait helpers)
 
@@ -42,15 +42,13 @@ SeleniumMethods (click, type, jsClick, hover, etc.)
 
 ScreenshotUtil (captures screenshots on failure)
 
-📊 Beautiful ExtentReports v5 HTML Reporting
+📊 ExtentReports v5 HTML Reporting
 
 Test summary
 
 Step logging
 
 Clickable screenshots on failure
-
-Dark theme optional
 
 Fully standalone HTML report
 
@@ -68,7 +66,7 @@ Start with:
 
 docker-compose -f docker-compose-web.yaml up -d
 
-🎯 TestNG Power
+TestNG Power
 
 TestNG annotations
 
@@ -79,7 +77,9 @@ TestNG suite XML integration
 Parallelizable architecture
 
 Setup Instructions
+
 1 Clone the Repository
+
 git clone https://github.com/yourusername/selenium-healenium-ai-framework.git
 
 2 Install Java 17
@@ -141,7 +141,7 @@ public void testBasicSearch(String location, String make, String model) {
 
 Readable. Fluent. Professional.
 
-🧠 AI + Healenium Integration Highlights
+AI + Healenium Integration Highlights
 
 All tests run through SelfHealingDriver
 
@@ -188,7 +188,7 @@ Performance testing
 
 Framework design
 
-🦁 One Love & Maximum Respect
+
 
 This repo is built with passion, pride, and a drive for excellence.
 
