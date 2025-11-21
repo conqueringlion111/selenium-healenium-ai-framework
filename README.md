@@ -124,6 +124,7 @@ Exception logs
 Screenshots
 
 Sample Test (Readable & Fluent)
+
 @Test(dataProvider = "dataProvider")
 public void testBasicSearch(String location, String make, String model) {
     homepage
