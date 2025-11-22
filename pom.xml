@@ -82,7 +82,7 @@
             <version>2.0.9</version>
         </dependency>
 
-        <!-- Modern ExtentReports -->
+        <!-- ExtentReports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
