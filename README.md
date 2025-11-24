@@ -3,7 +3,7 @@ AI-powered UI Test Automation with Self-Healing Locators
 
 This project is a modern, enterprise-grade Selenium test automation framework enhanced with AI-driven Healenium self-healing locators, Dockerized backend services, ExtentReports v5 reporting, and a clean TestNG architecture.
 
-This repo is designed to showcase senior-level automation engineering, framework design expertise, and practical use of AI in UI testing.
+This repo is designed to showcase practical use of AI in UI testing.
 
 🌟 Key Features
 🤖 AI-Driven Self-Healing Locators (Healenium)
