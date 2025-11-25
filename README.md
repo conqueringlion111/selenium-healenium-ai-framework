@@ -5,8 +5,8 @@ This project is a modern, enterprise-grade Selenium test automation framework en
 
 This repo is designed to showcase practical use of AI in UI testing.
 
-🌟 Key Features
-🤖 AI-Driven Self-Healing Locators (Healenium)
+* Key Features
+- AI-Driven Self-Healing Locators (Healenium)
 
 Healenium automatically repairs broken Selenium locators at runtime using machine-learning–based selector imitation.
 
@@ -30,7 +30,7 @@ Explicit waits wrapper
 
 Java 17
 
-🔥 Custom Built Utilities
+* Custom Built Utilities
 
 DriverManager
 
@@ -52,7 +52,7 @@ Clickable screenshots on failure
 
 Fully standalone HTML report
 
-🐳 Dockerized Healenium Backend
+* Dockerized Healenium Backend
 
 Runs three containers:
 
@@ -192,4 +192,4 @@ Framework design
 
 This repo is built with passion, pride, and a drive for excellence.
 
-If this framework inspires you — star the repo! ⭐
+If this framework inspires you — star the repo!
