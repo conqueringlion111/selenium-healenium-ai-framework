@@ -36,22 +36,21 @@ public class TestBase {
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browserRemote"})
     public void beforeMethod(@Optional String browserRemote) {
+        WebDriver driver = WebDriverSetUp.createDriver(
+                ConfigManager.get("browser"),
+                ConfigManager.get("runFromSuite"),
+                browserRemote
+        );
 
-        String browser = ConfigManager.get("browser");
-        String runFromSuite = ConfigManager.get("runFromSuite");
-
-        driver = WebDriverSetUp.createDriver(browser, runFromSuite, browserRemote);
         DriverManager.setDriver(driver);
 
-        baseUrl = resolve("test.env", "baseUrl");
-        email = resolve("email", "email");
-        password = resolve("password", "password");
-        myPassword = resolve("myPassword", "myPassword");
+        baseUrl = System.getProperty("test.env", ConfigManager.get("baseUrl"));
 
         driver.get(baseUrl);
 
-        pages = new PageManager(driver);
-        homepage = pages.home();
+        // FIX: Initialize PageManager + homepage
+        PageManager.init();
+        homepage = PageManager.getInstance().home();
     }
 
     private String resolve(String sysKey, String configKeyFallback) {
@@ -72,12 +71,10 @@ public class TestBase {
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod(ITestResult result) {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            ScreenshotUtil.captureAndReturnPath(driver, result.getMethod().getMethodName());
-            // TODO: hook into TestRail integration
-        } else {
-            // TODO: TestRail passed status
+        if (result.getStatus() == ITestResult.FAILURE) {
+            ScreenshotUtil.captureAndReturnPath(DriverManager.getDriver(), result.getMethod().getMethodName());
         }
+
         DriverManager.quit();
     }
 }
