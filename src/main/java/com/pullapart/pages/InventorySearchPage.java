@@ -1,13 +1,14 @@
 package com.pullapart.pages;
 
+import com.pullapart.core.DriverManager;
 import com.pullapart.locators.InventorySearchPageLocators;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class InventorySearchPage extends PageBase {
 
-    public InventorySearchPage(WebDriver driver) {
-        super(driver);
+    public InventorySearchPage() {
+        super();
     }
 
     public InventorySearchPage verifyNavigationToInventorySearchPageSuccessful() {

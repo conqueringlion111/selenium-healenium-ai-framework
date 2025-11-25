@@ -1,12 +1,13 @@
 package com.pullapart.pages;
 
+import com.pullapart.core.DriverManager;
 import com.pullapart.locators.HomePageLocators;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends PageBase {
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
+        super();
     }
 
     public HomePage clickOnSelectLocation() {
@@ -37,11 +38,11 @@ public class HomePage extends PageBase {
 
     public InventorySearchPage clickOnSearchButton() {
         sel.click(HomePageLocators.BASIC_SEARCH_BUTTON_XPATH);
-        return new InventorySearchPage(driver);
+        return new InventorySearchPage();
     }
 
     public FAQPage clickOnFAQLink() {
         sel.click(HomePageLocators.FAQ_LINK_XPATH);
-        return new FAQPage(driver);
+        return new FAQPage();
     }
 }

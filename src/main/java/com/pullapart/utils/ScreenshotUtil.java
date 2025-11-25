@@ -1,5 +1,6 @@
 package com.pullapart.utils;
 
+import com.epam.healenium.SelfHealingDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 
@@ -13,25 +14,22 @@ public final class ScreenshotUtil {
     private ScreenshotUtil() {}
 
     public static String captureAndReturnPath(WebDriver driver, String methodName) {
-        if (driver == null) return null;
-
         try {
-            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-            String dir = "reports/screenshots/";
-            File folder = new File(dir);
-            if (!folder.exists()) {
-                folder.mkdirs();
+            // Unwrap Healenium proxy if needed
+            if (driver instanceof SelfHealingDriver) {
+                driver = ((SelfHealingDriver) driver).getDelegate();
             }
 
-            String filePath = dir + methodName + ".png";
-            File dest = new File(filePath);
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            File src = ts.getScreenshotAs(OutputType.FILE);
+
+            String path = "printscreen/" + methodName + ".png";
+            File dest = new File(path);
             FileUtils.copyFile(src, dest);
+            return path;
 
-            return filePath;
-
-        } catch (WebDriverException | IOException e) {
-            System.out.println("Screenshot error: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

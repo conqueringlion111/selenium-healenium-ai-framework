@@ -2,30 +2,21 @@ package com.pullapart.core;
 
 import org.openqa.selenium.WebDriver;
 
-public final class DriverManager {
-
-    private static WebDriver driver;
-
-    private DriverManager() {}
-
-    public static void setDriver(WebDriver drv) {
-        driver = drv;
-    }
+public class DriverManager {
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-        if (driver == null) {
-            throw new IllegalStateException("WebDriver has not been initialized");
-        }
-        return driver;
+        return driver.get();
+    }
+
+    public static void setDriver(WebDriver driverInstance) {
+        driver.set(driverInstance);
     }
 
     public static void quit() {
-        if (driver != null) {
-            try {
-                driver.quit();
-            } finally {
-                driver = null;
-            }
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
         }
     }
 }
